@@ -140,7 +140,7 @@ with col2:
 
 pace_minutes, pace_seconds = calculate_pace(
     duration=(split_hours, split_minutes, split_seconds),
-    distance=split_distance
+    distance=split_distance if split_unit == "miles" else split_distance * 0.621371
 )
 
 st.markdown(f"A runner starting in **{start_wave} ({start_time.strftime("%-I:%M:%S %p")})** "
