@@ -1,0 +1,15 @@
+[[theme.fontFaces]]
+family = "Google Sans"
+url = "https://fonts.gstatic.com/s/googlesans/v71/4UaRrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iq2vgCIhM907w.woff2"
+weight = "400 700"
+style = "normal"
+
+[theme]
+font="Google Sans, sans-serif"
+primaryColor = "#131C4E"
+metricValueFontSize = "2.75rem"
+metricValueFontWeight = 700
+
+[client]
+showErrorDetails = "none"
+toolbarMode = "minimal"
