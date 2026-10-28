@@ -8,13 +8,13 @@ from src.waves import start_waves
 # ============ Intro ============
 # ===============================
 
-st.title("NYC Marathon Spectator's Calculator")
+st.title("NYC Marathon Spectator's Calculator", anchor=False)
 
 st.markdown("A calculator for NYC Marathon spectators. "
             "Estimate when your runner will pass you on the course based on their latest official timing splits."
             )
 
-st.subheader("Instructions")
+st.subheader("Instructions", anchor=False)
 
 st.markdown("1) **Select the runner's start wave** to set their start time.\n"
             "2) **Enter the mile marker** where you are standing.\n"
@@ -55,7 +55,7 @@ with st.sidebar:
     )
     # Splits section
     st.divider()
-    st.subheader("Split", help="The runner's split time at a given marker on the course.")
+    st.subheader("Split", help="The runner's split time at a given marker on the course.", anchor=False)
     col1, col2 = st.columns(2)
     with col1:
         # Split distance
