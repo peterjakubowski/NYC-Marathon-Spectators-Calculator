@@ -83,7 +83,7 @@ with st.sidebar:
             label="Hours",
             key="split_hours",
             min_value=0,
-            max_value=10,
+            max_value=11,
             value=0,
             step=1,
             bind="query-params"
