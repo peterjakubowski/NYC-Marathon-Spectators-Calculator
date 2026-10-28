@@ -11,7 +11,7 @@ from src.waves import start_waves
 st.title("NYC Marathon Spectator's Calculator", anchor=False)
 
 st.markdown("A calculator for NYC Marathon spectators. "
-            "Estimate when your runner will pass you on the course based on their latest official timing splits."
+            "Estimate when your runner will pass you on the course based on their latest splits."
             )
 
 st.subheader("Instructions", anchor=False)
