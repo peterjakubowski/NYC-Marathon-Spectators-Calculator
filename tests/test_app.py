@@ -121,7 +121,7 @@ class TestElements:
 
     def test_changing_split_unit_changes_split_distance_options(self, at: AppTest):
         assert at.sidebar.get_by_key("split_unit").value == "miles"
-        assert len(at.sidebar.get_by_key("split_distance").options) == 25
+        assert len(at.sidebar.get_by_key("split_distance").options) == 26
         at.sidebar.selectbox(key="split_unit").set_value("kilometers").run()
         assert len(at.sidebar.get_by_key("split_distance").options) == 8
 
