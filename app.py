@@ -149,6 +149,7 @@ st.markdown(f"A runner starting in **{start_wave} ({start_time.strftime("%-I:%M:
             f"({int(pace_minutes // 1):01d}:{int(pace_seconds) % 60:02d}/mi pace) is estimated to "
             f"reach the **{mile_marker} mile** point at **{time_at_marker.strftime("%-I:%M:%S %p")}.** "
             )
-st.caption("This calculator is not affiliated with the NYRR or NYCM and does not guarantee you will see your runner. "
+st.caption("In no way is this calculator affiliated with the New York Road Runners or New York City Marathon. "
+           "Using this calculator does not guarantee you will see your runner. "
            "All calculations are estimates and assume a runner runs even splits."
            )

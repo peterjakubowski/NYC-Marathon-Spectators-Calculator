@@ -3,7 +3,7 @@
 
 # NYC-Marathon-Spectators-Calculator
 
-A calculator for NYC Marathon spectators. Estimate when your runner will pass you on the course based on their latest official timing splits.
+A calculator for NYC Marathon spectators. Estimate when your runner will pass you on the course based on their splits.
 
 ## Streamlit Community Cloud
 
