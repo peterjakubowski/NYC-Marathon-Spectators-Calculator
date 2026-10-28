@@ -47,6 +47,7 @@ class TestSidebarStartup:
         assert at.sidebar[0].type == "selectbox"
         assert at.sidebar[0].key == "start_wave"
         assert at.sidebar[0].value == "Wave 1"
+        assert len(at.sidebar[0].options) == 10
 
     def test_app_displays_sidebar_mile_marker_element(self, at: AppTest):
         assert at.sidebar[1].label == "Spectator at Mile Marker"
@@ -76,6 +77,7 @@ class TestSidebarStartup:
         assert at.sidebar[4][1][0].type == "selectbox"
         assert at.sidebar[4][1][0].key == "split_unit"
         assert at.sidebar[4][1][0].value == "miles"
+        assert len(at.sidebar[4][1][0].options) == 2
 
     def test_app_displays_sidebar_split_in_three_columns(self, at: AppTest):
         assert len(at.sidebar[5]) == 3
@@ -113,3 +115,26 @@ class TestMetrics:
 
     def test_app_displays_runner_summary_markdown_element(self, at: AppTest):
         assert at.markdown[2].body.startswith("A runner starting in")
+
+
+class TestElements:
+
+    def test_changing_split_unit_changes_split_distance_options(self, at: AppTest):
+        assert at.sidebar.get_by_key("split_unit").value == "miles"
+        assert len(at.sidebar.get_by_key("split_distance").options) == 25
+        at.sidebar.selectbox(key="split_unit").set_value("kilometers").run()
+        assert len(at.sidebar.get_by_key("split_distance").options) == 8
+
+    def test_changing_values_changes_metrics_summary_text(self, at: AppTest):
+        at.sidebar.selectbox(key="start_wave").set_value("Wave 4").run()
+        at.sidebar.number_input(key="mile_marker").set_value(9.0).run()
+        at.sidebar.selectbox(key="split_distance").set_value(10).run()
+        at.sidebar.selectbox(key="split_unit").set_value("kilometers").run()
+        at.sidebar.number_input(key="split_hours").set_value(1).run()
+        at.sidebar.number_input(key="split_minutes").set_value(15).run()
+        at.sidebar.number_input(key="split_seconds").set_value(30).run()
+        result = at.markdown[2].body
+        expected = ("A runner starting in **Wave 4 (10:55:00 AM)** who crosses the **10 kilometer** marker "
+                    "in **1 hours 15 minutes and 30 seconds** (12:09/mi pace) is estimated to reach the "
+                    "**9.0 mile** point at **12:44:21 PM.**")
+        assert result == expected
